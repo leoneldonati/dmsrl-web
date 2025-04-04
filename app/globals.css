@@ -4,3 +4,13 @@
   --color-brand-1: #ee1d23;
   --color-brand-2: #fcb740;
 }
+
+@font-face {
+  font-family: "Berlin";
+  src: url("/font/berlin-sans-fb-regular.ttf") format("truetype");
+  font-weight: 500;
+}
+
+body {
+  font-family: "Berlin", sans-serif;
+}

@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
-import logotipo from "@/public/logo-vectorizado.png";
-import logotipoSinLetras from "@/public/logo-vectorizado-sin-letras.png";
+import logotipo from "@/public/logo-vectorizado.avif";
+import logotipoSinLetras from "@/public/LOGO-1.svg";
 import menuSvg from "@/public/menu-deep.svg";
 import cartSvg from "@/public/shopping-cart.svg";
 import Link from "next/link";
@@ -29,7 +29,7 @@ export default function Header() {
         <Image
           src={logotipo}
           alt="Logotipo Distribuidora Multimarca vectorizado con detalles en el color del brand."
-          className="max-w-[250px] hidden md:inline-block"
+          className="max-w-[250px] w-full object-cover aspect-video scale-150 hidden md:inline-block"
           priority
         />
         <Image
@@ -41,7 +41,7 @@ export default function Header() {
       </Link>
 
       <Link
-        href="/carrito"
+        href="/cart"
         title="Abrir el carrito"
         aria-label="Botón de carrito"
         className="flex items-center gap-1 relative text-white"

@@ -1,7 +1,8 @@
 interface Presentation {
-  _id: Readonly<string>;
-  name: Readonly<string>;
+  id: Readonly<string>;
+  presentation: Readonly<string>;
   price: Readonly<number>;
+  quantity: number;
 }
 interface Asset {
   secureUrl: string;

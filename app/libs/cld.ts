@@ -1,10 +1,10 @@
-import { arrayBufferToBase64 } from "@utils/buffer";
+import { arrayBufferToBase64 } from "@/app/utils/buffer";
 import { v2 as cld } from "cloudinary";
 
 cld.config({
-  api_key: import.meta.env.CLD_KEY,
-  api_secret: import.meta.env.CLD_SECRET,
-  cloud_name: import.meta.env.CLD_NAME,
+  api_key: process.env.CLD_KEY,
+  api_secret: process.env.CLD_SECRET,
+  cloud_name: process.env.CLD_NAME,
 });
 export async function uploadFile(buffer: ArrayBuffer, fileType: string) {
   const base64String = arrayBufferToBase64(buffer);
@@ -22,7 +22,7 @@ export async function uploadFile(buffer: ArrayBuffer, fileType: string) {
         size: result.bytes,
       },
     };
-  } catch (e) {
+  } catch {
     return {
       ok: false,
       uploadedAsset: null,
@@ -37,7 +37,7 @@ export async function deleteFile(publicId: string) {
     return {
       ok: true,
     };
-  } catch (e) {
+  } catch {
     return {
       ok: false,
     };

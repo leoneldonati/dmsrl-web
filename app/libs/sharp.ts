@@ -14,9 +14,9 @@ export async function convertFile(
 
     return {
       ok: true,
-      buffer: resultantArrayBuffer,
+      buffer: resultantArrayBuffer as ArrayBuffer,
     };
-  } catch (e) {
+  } catch {
     return {
       ok: false,
       buffer: null,

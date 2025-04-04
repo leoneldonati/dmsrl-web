@@ -1,32 +1,22 @@
-import Image from "next/image";
 import { getProducts } from "./services/products";
-import searchSvg from "@/public/search.svg";
 import { Suspense } from "react";
 import ProductsFeed from "./components/ui/products-feed";
 import CarouselAuto from "./components/ui/carousel-auto";
-export default async function Home() {
-  // const products = getProducts();
+import Filters from "./components/ui/shared/filters";
+import ProductsSkelleton from "./components/skelletons/product-skelleton";
+import ToastClientContainer from "./components/ui/shared/toast-container";
+export default function Home() {
+  const products = getProducts();
   return (
-    <section className="min-h-screen">
+    <section className="min-h-screen  overflow-hidden p-2 flex flex-col gap-3">
       <CarouselAuto />
-      <label
-        htmlFor="search-name"
-        className="flex justify-between p-1 rounded outline-2 outline-brand-1/60"
-      >
-        <input
-          type="text"
-          placeholder="Filtra los productos por nombre"
-          id="search-name"
-          aria-label="Barra de búsqueda por nombre"
-          className="w-full focus:outline-none"
-        />
+      <Filters />
 
-        <Image src={searchSvg} alt="Icono para el campo de filtrado." />
-      </label>
-
-      <Suspense fallback={<strong>CARGANDO PRODUCTOS...</strong>}>
-        {/* <ProductsFeed productsPromise={products} /> */}
+      <Suspense fallback={<ProductsSkelleton />}>
+        <ProductsFeed productsPromise={products} />
       </Suspense>
+
+      <ToastClientContainer />
     </section>
   );
 }
