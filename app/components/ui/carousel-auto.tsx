@@ -29,7 +29,7 @@ export default function CarouselAuto() {
             key={index}
             src={asset}
             alt={`Imagen ${index} del Carousel.`}
-            className="object-fill object-center "
+            className="object-cover h-full w-full flex-shrink-0"
           />
         ))}
       </div>
