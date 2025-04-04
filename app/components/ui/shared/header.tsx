@@ -11,7 +11,7 @@ import { useCartStore } from "@/app/stores/cart";
 
 export default function Header() {
   const [opened, setOpened] = useState(false);
-  const { list } = useCartStore();
+  const { list, toggleOpened } = useCartStore();
   return (
     <header className="flex justify-between p-2 bg-brand-1 [&>button]:cursor-pointer ">
       <button
@@ -29,7 +29,7 @@ export default function Header() {
         <Image
           src={logotipo}
           alt="Logotipo Distribuidora Multimarca vectorizado con detalles en el color del brand."
-          className="max-w-[250px] w-full object-cover aspect-video scale-150 hidden md:inline-block"
+          className="max-w-[250px] w-full object-contain aspect-video scale-150 hidden md:inline-block"
           priority
         />
         <Image
@@ -40,15 +40,15 @@ export default function Header() {
         />
       </Link>
 
-      <Link
-        href="/cart"
+      <button
+        onClick={() => toggleOpened()}
         title="Abrir el carrito"
         aria-label="Botón de carrito"
         className="flex items-center gap-1 relative text-white"
       >
         <Image src={cartSvg} alt="Icono para el botón del carrito" />
         <span>{list.length > 99 ? "+99" : list.length}</span>
-      </Link>
+      </button>
     </header>
   );
 }

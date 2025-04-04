@@ -1,9 +1,3 @@
-interface Presentation {
-  id: Readonly<string>;
-  presentation: Readonly<string>;
-  price: Readonly<number>;
-  quantity: number;
-}
 interface Asset {
   secureUrl: string;
   publicId: string;
@@ -15,6 +9,10 @@ interface Product {
   name: Readonly<string>;
   category: Readonly<string>;
   createdAt: Readonly<Date>;
-  presentations: Presentation[];
   asset: Readonly<Asset>;
+  price: Readonly<number>;
+  discount: Readonly<number>;
+}
+interface ProductInCart extends Product {
+  quantity: Readonly<number>;
 }

@@ -1,36 +1,40 @@
 "use client";
 import { useProducts } from "@/app/stores/products";
 import { use, useEffect, useMemo } from "react";
+import mock from "@/public/mock.json";
 import CardProduct from "./card-product";
 
 interface Props {
-  productsPromise: Promise<Product[]>;
+  productsPromise?: Promise<Product[]>;
 }
 export default function ProductsFeed({ productsPromise }: Props) {
-  const obtainedProducts = use(productsPromise);
+  // const obtainedProducts = use(productsPromise);
   const { products, addProducts } = useProducts();
 
   const groupedByCategoryArray = useMemo(() => {
-    const groupedByCategory = Object.groupBy(products, (prod) => prod.category);
+    const groupedByCategory = Object.groupBy(
+      mock as unknown as Product[],
+      (prod) => prod.category
+    );
 
     const groupedByCategoryArray = Object.entries(groupedByCategory).map(
       ([category, products]) => ({ category, products })
     );
     return groupedByCategoryArray;
-  }, [products]);
-
-  useEffect(() => {
-    addProducts(obtainedProducts);
   }, []);
+
+  // useEffect(() => {
+  //   addProducts(obtainedProducts);
+  // }, []);
   return groupedByCategoryArray.map(({ category, products }) => (
     <section
-      className="overflow-x-scroll relative "
+      className="overflow-x-auto relative "
       key={category + products?.length}
     >
-      <h2 className="w-full sticky left-0 bg-gradient-to-r font-bold  from-brand-2/80 to-brand-1 p-2 text-2xl rounded-md">
+      <h2 className="w-full sticky left-0  font-bold underline underline-offset-2  rounded-md">
         {category}
       </h2>
-      <div className="flex flex-row gap-3 ">
+      <div className="flex flex-row gap-3  py-4 px-2">
         {products?.map((product) => (
           <CardProduct product={product} key={product._id.toString()} />
         ))}

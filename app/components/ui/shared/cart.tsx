@@ -3,17 +3,28 @@ import Image from "next/image";
 import AlertSvg from "@/public/calendar-exclamation.svg";
 import CloseSvg from "@/public/square-x.svg";
 import MailFastSvg from "@/public/mail-fast.svg";
-import { useCartStore } from "../stores/cart";
-import CartCard from "../components/ui/cart-card";
+import { useCartStore } from "@/app/stores/cart";
 import { useState } from "react";
-import { createMsg } from "../utils/msg";
+import CartCard from "../cart-card";
 
 export default function CartPage() {
   const [alertModal, setAlertModal] = useState(true);
-  const { list, getTotal } = useCartStore();
+  const { list, opened, getTotal, deleteOne, toggleOpened } = useCartStore();
 
   return (
-    <section className="flex flex-col gap-3 px-2 py-4 relative">
+    <section
+      style={{
+        transform: `translateX(${opened ? "0" : "100"}%)`,
+      }}
+      className="fixed right-0  transition-transform top-0 z-50 flex flex-col w-full  gap-3 px-2 py-4 bg-white h-screen"
+    >
+      <button onClick={toggleOpened} className="cursor-pointer">
+        <Image
+          src={CloseSvg}
+          alt="Ícono de cierre de tarjeta"
+          className="w-6 h-6"
+        />
+      </button>
       <h2 className="text-2xl font-bold underline underline-offset-4 text-center">
         Tú carrito
       </h2>
@@ -43,19 +54,17 @@ export default function CartPage() {
         </p>
       </div>
 
-      <div className="flex flex-col items-center">
+      <p className="italic text-black/40">- {list.length} productos.</p>
+      <ul>
         {list.map((prod) => (
-          <CartCard product={prod} key={prod._id} />
+          <CartCard prod={prod} key={prod._id} handleDelete={deleteOne} />
         ))}
-      </div>
-
+      </ul>
       <a
-        href={`https://api.whatsapp.com/send?number=3417502479&text=${encodeURIComponent(
-          createMsg(list)
-        )}`}
+        href={`https://api.whatsapp.com/send?number=3417502479&text=`}
         aria-label="Clickea este botón para enviar el pedido"
         title="Enviar pedido"
-        className="fixed bottom-4 right-3 bg-green-100 px-4 py-2 flex items-center gap-2 rounded-md text-green-500 border border-green-500 cursor-pointer transition-transform hover:scale-105"
+        className=" bg-green-100 px-4 py-2 flex items-center gap-2 rounded-md text-green-500 border border-green-500 cursor-pointer transition-transform hover:scale-105"
       >
         <Image src={MailFastSvg} alt="Icono de mail rapido" />
         Enviar pedido

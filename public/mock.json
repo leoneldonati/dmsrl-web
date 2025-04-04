@@ -1,0 +1,282 @@
+[
+  {
+    "_id": "prod-001",
+    "name": "Smartphone X100",
+    "category": "Electrónica",
+    "createdAt": "2023-04-01T10:00:00Z",
+    "asset": {
+      "secureUrl": "https://res.cloudinary.com/dzmuriaby/image/upload/v1743800638/dmsrl/whaa24zzhtgrft3itegh.png",
+      "publicId": "prod-001",
+      "width": 800,
+      "height": 600
+    },
+    "price": 699.99,
+    "discount": 57
+  },
+  {
+    "_id": "prod-002",
+    "name": "Laptop Pro 15",
+    "category": "Electrónica",
+    "createdAt": "2023-03-28T12:30:00Z",
+    "asset": {
+      "secureUrl": "https://res.cloudinary.com/dzmuriaby/image/upload/v1743800638/dmsrl/whaa24zzhtgrft3itegh.png",
+      "publicId": "prod-002",
+      "width": 1024,
+      "height": 768
+    },
+    "price": 1299.5,
+    "discount": 23
+  },
+  {
+    "_id": "prod-003",
+    "name": "Cámara Digital ZX",
+    "category": "Fotografía",
+    "createdAt": "2023-03-20T08:15:00Z",
+    "asset": {
+      "secureUrl": "https://res.cloudinary.com/dzmuriaby/image/upload/v1743800638/dmsrl/whaa24zzhtgrft3itegh.png",
+      "publicId": "prod-003",
+      "width": 640,
+      "height": 480
+    },
+    "price": 499,
+    "discount": 89
+  },
+  {
+    "_id": "prod-004",
+    "name": "Auriculares Inalámbricos",
+    "category": "Accesorios",
+    "createdAt": "2023-04-02T14:45:00Z",
+    "asset": {
+      "secureUrl": "https://res.cloudinary.com/dzmuriaby/image/upload/v1743800638/dmsrl/whaa24zzhtgrft3itegh.png",
+      "publicId": "prod-004",
+      "width": 600,
+      "height": 600
+    },
+    "price": 89.99,
+    "discount": 45
+  },
+  {
+    "_id": "prod-005",
+    "name": "Smartwatch Series 5",
+    "category": "Wearables",
+    "createdAt": "2023-03-25T09:00:00Z",
+    "asset": {
+      "secureUrl": "https://res.cloudinary.com/dzmuriaby/image/upload/v1743800638/dmsrl/whaa24zzhtgrft3itegh.png",
+      "publicId": "prod-005",
+      "width": 500,
+      "height": 500
+    },
+    "price": 199.99,
+    "discount": 12
+  },
+  {
+    "_id": "prod-006",
+    "name": "Televisor 4K 55\"",
+    "category": "Electrodomésticos",
+    "createdAt": "2023-03-30T16:20:00Z",
+    "asset": {
+      "secureUrl": "https://res.cloudinary.com/dzmuriaby/image/upload/v1743800638/dmsrl/whaa24zzhtgrft3itegh.png",
+      "publicId": "prod-006",
+      "width": 1920,
+      "height": 1080
+    },
+    "price": 799.99,
+    "discount": 67
+  },
+  {
+    "_id": "prod-007",
+    "name": "Cafetera Espresso",
+    "category": "Hogar",
+    "createdAt": "2023-03-22T07:45:00Z",
+    "asset": {
+      "secureUrl": "https://res.cloudinary.com/dzmuriaby/image/upload/v1743800638/dmsrl/whaa24zzhtgrft3itegh.png",
+      "publicId": "prod-007",
+      "width": 700,
+      "height": 500
+    },
+    "price": 149.5,
+    "discount": 34
+  },
+  {
+    "_id": "prod-008",
+    "name": "Juego de Sartenes",
+    "category": "Cocina",
+    "createdAt": "2023-04-03T11:30:00Z",
+    "asset": {
+      "secureUrl": "https://res.cloudinary.com/dzmuriaby/image/upload/v1743800638/dmsrl/whaa24zzhtgrft3itegh.png",
+      "publicId": "prod-008",
+      "width": 800,
+      "height": 600
+    },
+    "price": 99.99,
+    "discount": 90
+  },
+  {
+    "_id": "prod-009",
+    "name": "Zapatos Deportivos",
+    "category": "Calzado",
+    "createdAt": "2023-03-27T13:00:00Z",
+    "asset": {
+      "secureUrl": "https://res.cloudinary.com/dzmuriaby/image/upload/v1743800638/dmsrl/whaa24zzhtgrft3itegh.png",
+      "publicId": "prod-009",
+      "width": 600,
+      "height": 400
+    },
+    "price": 59.99,
+    "discount": 10
+  },
+  {
+    "_id": "prod-010",
+    "name": "Chaqueta de Cuero",
+    "category": "Ropa",
+    "createdAt": "2023-03-29T18:00:00Z",
+    "asset": {
+      "secureUrl": "https://res.cloudinary.com/dzmuriaby/image/upload/v1743800638/dmsrl/whaa24zzhtgrft3itegh.png",
+      "publicId": "prod-010",
+      "width": 750,
+      "height": 900
+    },
+    "price": 249,
+    "discount": 75
+  },
+  {
+    "_id": "prod-011",
+    "name": "Mesa de Centro",
+    "category": "Muebles",
+    "createdAt": "2023-03-31T10:30:00Z",
+    "asset": {
+      "secureUrl": "https://res.cloudinary.com/dzmuriaby/image/upload/v1743800638/dmsrl/whaa24zzhtgrft3itegh.png",
+      "publicId": "prod-011",
+      "width": 1200,
+      "height": 800
+    },
+    "price": 349.99,
+    "discount": 8
+  },
+  {
+    "_id": "prod-012",
+    "name": "Silla Ergónomica",
+    "category": "Muebles",
+    "createdAt": "2023-04-01T15:45:00Z",
+    "asset": {
+      "secureUrl": "https://res.cloudinary.com/dzmuriaby/image/upload/v1743800638/dmsrl/whaa24zzhtgrft3itegh.png",
+      "publicId": "prod-012",
+      "width": 600,
+      "height": 800
+    },
+    "price": 199.99,
+    "discount": 55
+  },
+  {
+    "_id": "prod-013",
+    "name": "Monitor UltraWide 34\"",
+    "category": "Accesorios",
+    "createdAt": "2023-03-26T12:15:00Z",
+    "asset": {
+      "secureUrl": "https://res.cloudinary.com/dzmuriaby/image/upload/v1743800638/dmsrl/whaa24zzhtgrft3itegh.png",
+      "publicId": "prod-013",
+      "width": 2560,
+      "height": 1080
+    },
+    "price": 399.99,
+    "discount": 42
+  },
+  {
+    "_id": "prod-014",
+    "name": "Teclado Mecánico",
+    "category": "Accesorios",
+    "createdAt": "2023-04-02T09:30:00Z",
+    "asset": {
+      "secureUrl": "https://res.cloudinary.com/dzmuriaby/image/upload/v1743800638/dmsrl/whaa24zzhtgrft3itegh.png",
+      "publicId": "prod-014",
+      "width": 800,
+      "height": 300
+    },
+    "price": 89.5,
+    "discount": 99
+  },
+  {
+    "_id": "prod-015",
+    "name": "Ratón Inalámbrico",
+    "category": "Accesorios",
+    "createdAt": "2023-03-24T14:00:00Z",
+    "asset": {
+      "secureUrl": "https://res.cloudinary.com/dzmuriaby/image/upload/v1743800638/dmsrl/whaa24zzhtgrft3itegh.png",
+      "publicId": "prod-015",
+      "width": 400,
+      "height": 300
+    },
+    "price": 39.99,
+    "discount": 5
+  },
+  {
+    "_id": "prod-016",
+    "name": "Impresora Multifunción",
+    "category": "Oficina",
+    "createdAt": "2023-03-23T11:00:00Z",
+    "asset": {
+      "secureUrl": "https://res.cloudinary.com/dzmuriaby/image/upload/v1743800638/dmsrl/whaa24zzhtgrft3itegh.png",
+      "publicId": "prod-016",
+      "width": 800,
+      "height": 600
+    },
+    "price": 179.99,
+    "discount": 73
+  },
+  {
+    "_id": "prod-017",
+    "name": "Router Wi-Fi 6",
+    "category": "Tecnología",
+    "createdAt": "2023-04-03T08:00:00Z",
+    "asset": {
+      "secureUrl": "https://res.cloudinary.com/dzmuriaby/image/upload/v1743800638/dmsrl/whaa24zzhtgrft3itegh.png",
+      "publicId": "prod-017",
+      "width": 500,
+      "height": 500
+    },
+    "price": 129.99,
+    "discount": 28
+  },
+  {
+    "_id": "prod-018",
+    "name": "Bicicleta de Montaña",
+    "category": "Deportes",
+    "createdAt": "2023-03-20T17:30:00Z",
+    "asset": {
+      "secureUrl": "https://res.cloudinary.com/dzmuriaby/image/upload/v1743800638/dmsrl/whaa24zzhtgrft3itegh.png",
+      "publicId": "prod-018",
+      "width": 1024,
+      "height": 768
+    },
+    "price": 549,
+    "discount": 66
+  },
+  {
+    "_id": "prod-019",
+    "name": "Parrilla Eléctrica",
+    "category": "Cocina",
+    "createdAt": "2023-03-28T19:00:00Z",
+    "asset": {
+      "secureUrl": "https://res.cloudinary.com/dzmuriaby/image/upload/v1743800638/dmsrl/whaa24zzhtgrft3itegh.png",
+      "publicId": "prod-019",
+      "width": 800,
+      "height": 600
+    },
+    "price": 199.5,
+    "discount": 41
+  },
+  {
+    "_id": "prod-020",
+    "name": "Set de Maletas",
+    "category": "Viajes",
+    "createdAt": "2023-03-29T07:45:00Z",
+    "asset": {
+      "secureUrl": "https://res.cloudinary.com/dzmuriaby/image/upload/v1743800638/dmsrl/whaa24zzhtgrft3itegh.png",
+      "publicId": "prod-020",
+      "width": 900,
+      "height": 700
+    },
+    "price": 299.99,
+    "discount": 30
+  }
+]

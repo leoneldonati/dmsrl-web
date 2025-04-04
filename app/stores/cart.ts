@@ -6,8 +6,10 @@ TODO:
  2 - Arreglar los tipos de la store
 */
 interface CartStore {
-  list: Array<Product>;
-  addToCart: (payload: Product) => void;
+  list: Array<ProductInCart>;
+  opened: boolean;
+  toggleOpened: () => void;
+  addToCart: (payload: ProductInCart) => void;
   isInCart: (id: string) => boolean;
   deleteOne: (id: string) => void;
   deleteAllCart: () => void;
@@ -17,12 +19,28 @@ export const useCartStore = create(
   persist<CartStore>(
     (set, get) => ({
       list: [],
+      opened: false,
+      toggleOpened: () => {
+        const { opened, list } = get();
+        if (list.length === 0) return set({ opened: false });
+        set({ opened: !opened });
+      },
       addToCart: (payload) => {
-        const { list } = get();
+        const { list, isInCart } = get();
+        if (isInCart(payload._id)) {
+          const mapped = list.map((prod) => {
+            if (prod._id === payload._id)
+              return { ...prod, quantity: prod.quantity + 1 };
+            return prod;
+          });
 
+          set({ list: mapped });
+
+          return;
+        }
         const newCartList = [...list, payload];
 
-        set({ list: newCartList });
+        set({ list: newCartList, opened: true });
       },
       isInCart: (id) => {
         const { list } = get();
@@ -34,7 +52,7 @@ export const useCartStore = create(
 
         const filtered = list.filter((prod) => prod._id !== id);
 
-        set({ list: filtered });
+        set({ list: filtered, opened: filtered.length !== 0 });
       },
       deleteAllCart: () => {
         set({ list: [] });
@@ -42,12 +60,7 @@ export const useCartStore = create(
       getTotal: () => {
         const { list } = get();
 
-        return list.reduce(
-          (acc, value) =>
-            acc +
-            value.presentations.reduce((a, v) => a + v.price * v.quantity, 0),
-          0
-        );
+        return list.reduce((acc, value) => acc + value.price, 0);
       },
     }),
     { name: "cart-dmsrl" }
