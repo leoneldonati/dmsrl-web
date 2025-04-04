@@ -60,7 +60,10 @@ export const useCartStore = create(
       getTotal: () => {
         const { list } = get();
 
-        return list.reduce((acc, value) => acc + value.price, 0);
+        return list.reduce(
+          (acc, value) => acc + value.price * value.quantity,
+          0
+        );
       },
     }),
     { name: "cart-dmsrl" }

@@ -6,6 +6,7 @@ import MailFastSvg from "@/public/mail-fast.svg";
 import { useCartStore } from "@/app/stores/cart";
 import { useState } from "react";
 import CartCard from "../cart-card";
+import createMsg from "@/app/utils/msg";
 
 export default function CartPage() {
   const [alertModal, setAlertModal] = useState(true);
@@ -29,10 +30,6 @@ export default function CartPage() {
         Tú carrito
       </h2>
 
-      <p className="bg-brand-1 rounded px-4 py-2 text-white w-fit mx-auto">
-        Total: <strong>${getTotal()}</strong>
-      </p>
-
       <div
         hidden={!alertModal}
         className=" bg-brand-2/80 flex flex-col max-w-xs mx-auto p-2 rounded-md"
@@ -54,14 +51,23 @@ export default function CartPage() {
         </p>
       </div>
 
-      <p className="italic text-black/40">- {list.length} productos.</p>
+      <div className="flex justify-between items-center">
+        <p className="italic text-black/40">- {list.length} productos.</p>
+
+        <p className="">
+          Total: <strong>${getTotal().toFixed(2)}</strong>
+        </p>
+      </div>
       <ul>
         {list.map((prod) => (
           <CartCard prod={prod} key={prod._id} handleDelete={deleteOne} />
         ))}
       </ul>
       <a
-        href={`https://api.whatsapp.com/send?number=3417502479&text=`}
+        href={`https://api.whatsapp.com/send?number=3417502479&text=${createMsg(
+          list,
+          { encodeMsg: true }
+        )}`}
         aria-label="Clickea este botón para enviar el pedido"
         title="Enviar pedido"
         className=" bg-green-100 px-4 py-2 flex items-center gap-2 rounded-md text-green-500 border border-green-500 cursor-pointer transition-transform hover:scale-105"
