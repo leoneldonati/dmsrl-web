@@ -1,15 +1,14 @@
 "use client";
-import { useProducts } from "@/app/stores/products";
-import { use, useEffect, useMemo } from "react";
+import { useMemo } from "react";
 import mock from "@/public/mock.json";
 import CardProduct from "./card-product";
 
 interface Props {
   productsPromise?: Promise<Product[]>;
 }
-export default function ProductsFeed({ productsPromise }: Props) {
+export default function ProductsFeed({}: Props) {
   // const obtainedProducts = use(productsPromise);
-  const { products, addProducts } = useProducts();
+  // const { products, addProducts } = useProducts();
 
   const groupedByCategoryArray = useMemo(() => {
     const groupedByCategory = Object.groupBy(
