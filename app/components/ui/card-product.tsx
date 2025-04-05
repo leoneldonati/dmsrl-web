@@ -6,6 +6,7 @@ import { useCartStore } from "@/app/stores/cart";
 import OfferSvg from "@/public/shopping-bag-discount.svg";
 interface Props {
   product: Product;
+  isAdmin: boolean;
 }
 export default function CardProduct({ product }: Props) {
   const { addToCart } = useCartStore();

@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/app/components/ui/shared/header";
 import Footer from "./components/footer";
+import ToastClientContainer from "./components/ui/shared/toast-container";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -32,6 +33,7 @@ export default function RootLayout({
         <Header />
         <main className="bg-gray-100">{children}</main>
         <Footer />
+        <ToastClientContainer />
       </body>
     </html>
   );

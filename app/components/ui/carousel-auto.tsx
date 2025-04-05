@@ -36,7 +36,7 @@ export default function CarouselAuto() {
 
       <div
         className={`
-      w-full flex flex-row  items-center gap-2 absolute bottom-3 z-50 justify-center 
+      w-full flex flex-row  items-center gap-2 absolute bottom-3 z-10 justify-center 
       [&>span]:w-3 [&>span]:h-3 [&>span]:rounded-full [&>span]:bg-white
         `}
       >

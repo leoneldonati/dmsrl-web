@@ -26,19 +26,26 @@ export default function AsideMenu({ closeMenu, opened }: Props) {
       >
         <Image src={menuSvgBlack} alt="Icono para el botón del menú" />
       </button>
-      <ul className="flex flex-col gap-3 [&>li]:w-full">
-        <li>
+      <ul className="flex flex-col gap-3 [&>li]:w-full h-full overflow-y-auto">
+        <li className="flex gap-2 items-center">
           <Link
             href="/"
             className="bg-brand-1/20 text-brand-1 px-4 py-2 rounded-xl"
           >
             Inicio
           </Link>
+
+          <Link href="/admin/login">Login</Link>
         </li>
 
         {categories.map((category) => (
-          <li key={category}>
-            <Link href={`/${encodeURIComponent(category)}`}>{category}</Link>
+          <li key={category} className="w-full">
+            <Link
+              href={`/${encodeURIComponent(category)}`}
+              className="w-full p-2 border border-black/60 flex rounded-md"
+            >
+              {category}
+            </Link>
           </li>
         ))}
       </ul>

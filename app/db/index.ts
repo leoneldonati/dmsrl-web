@@ -12,3 +12,5 @@ await client.connect();
 export const productsModel = client
   .db(process.env.DB_NAME)
   .collection("products");
+
+export const adminModel = client.db(process.env.DB_NAME).collection("admin");

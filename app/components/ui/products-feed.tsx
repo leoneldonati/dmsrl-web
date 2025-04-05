@@ -1,14 +1,14 @@
 "use client";
-import { useEffect, useMemo } from "react";
-import mock from "@/public/mock.json";
+import { use, useEffect, useMemo } from "react";
 import CardProduct from "./card-product";
 import { useProducts } from "@/app/stores/products";
 
 interface Props {
-  productsPromise?: Promise<Product[]>;
+  productsPromise: Promise<Product[]>;
+  isAdmin: boolean;
 }
-export default function ProductsFeed({}: Props) {
-  // const obtainedProducts = use(productsPromise);
+export default function ProductsFeed({ isAdmin, productsPromise }: Props) {
+  const obtainedProducts = use(productsPromise);
   const { products, addProducts } = useProducts();
 
   const groupedByCategoryArray = useMemo(() => {
@@ -21,7 +21,7 @@ export default function ProductsFeed({}: Props) {
   }, [products]);
 
   useEffect(() => {
-    addProducts(mock as unknown as Product[]);
+    addProducts(obtainedProducts);
   }, []);
   return groupedByCategoryArray.map(({ category, products }) => (
     <section
@@ -33,7 +33,11 @@ export default function ProductsFeed({}: Props) {
       </h2>
       <div className="flex flex-row gap-3  py-4 px-2">
         {products?.map((product) => (
-          <CardProduct product={product} key={product._id.toString()} />
+          <CardProduct
+            product={product}
+            key={product._id.toString()}
+            isAdmin={isAdmin}
+          />
         ))}
       </div>
     </section>
