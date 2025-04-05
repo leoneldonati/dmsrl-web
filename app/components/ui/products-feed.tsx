@@ -1,30 +1,28 @@
 "use client";
-import { useMemo } from "react";
+import { useEffect, useMemo } from "react";
 import mock from "@/public/mock.json";
 import CardProduct from "./card-product";
+import { useProducts } from "@/app/stores/products";
 
 interface Props {
   productsPromise?: Promise<Product[]>;
 }
 export default function ProductsFeed({}: Props) {
   // const obtainedProducts = use(productsPromise);
-  // const { products, addProducts } = useProducts();
+  const { products, addProducts } = useProducts();
 
   const groupedByCategoryArray = useMemo(() => {
-    const groupedByCategory = Object.groupBy(
-      mock as unknown as Product[],
-      (prod) => prod.category
-    );
+    const groupedByCategory = Object.groupBy(products, (prod) => prod.category);
 
     const groupedByCategoryArray = Object.entries(groupedByCategory).map(
       ([category, products]) => ({ category, products })
     );
     return groupedByCategoryArray;
-  }, []);
+  }, [products]);
 
-  // useEffect(() => {
-  //   addProducts(obtainedProducts);
-  // }, []);
+  useEffect(() => {
+    addProducts(mock as unknown as Product[]);
+  }, []);
   return groupedByCategoryArray.map(({ category, products }) => (
     <section
       className="overflow-x-auto relative "

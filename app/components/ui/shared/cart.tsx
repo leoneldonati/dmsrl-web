@@ -17,7 +17,7 @@ export default function CartPage() {
       style={{
         transform: `translateX(${opened ? "0" : "100"}%)`,
       }}
-      className="fixed right-0  transition-transform top-0 z-50 flex flex-col w-full  gap-3 px-2 py-4 bg-white h-screen"
+      className="fixed right-0  transition-transform top-0 z-50 flex flex-col w-full max-w-[400px] gap-3 px-2 py-4 bg-white h-screen"
     >
       <button onClick={toggleOpened} className="cursor-pointer">
         <Image
@@ -70,7 +70,7 @@ export default function CartPage() {
         )}`}
         aria-label="Clickea este botón para enviar el pedido"
         title="Enviar pedido"
-        className=" bg-green-100 px-4 py-2 flex items-center gap-2 rounded-md text-green-500 border border-green-500 cursor-pointer transition-transform hover:scale-105"
+        className=" bg-green-100 px-4 py-2 flex items-center w-fit mx-auto gap-2 rounded-md text-green-500 border border-green-500 cursor-pointer transition-transform hover:scale-105"
       >
         <Image src={MailFastSvg} alt="Icono de mail rapido" />
         Enviar pedido

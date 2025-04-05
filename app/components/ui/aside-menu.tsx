@@ -2,12 +2,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import menuSvgBlack from "@/public/menu-2.svg";
+import { useProducts } from "@/app/stores/products";
 
 interface Props {
   closeMenu: () => void;
   opened: boolean;
 }
 export default function AsideMenu({ closeMenu, opened }: Props) {
+  const { products } = useProducts();
+  const grouped = Object.groupBy(products, (prod) => prod.category);
+  const categories = Object.keys(grouped);
   return (
     <aside
       className="fixed left-0 top-0 h-screen px-3 py-6 z-50 transition-transform -translate-x-full bg-white flex flex-col items-start gap-6"
@@ -31,15 +35,12 @@ export default function AsideMenu({ closeMenu, opened }: Props) {
             Inicio
           </Link>
         </li>
-        <li>
-          <Link href="/comestibles">Comestibles</Link>
-        </li>
-        <li>
-          <Link href="/ingredientes">Ingredientes</Link>
-        </li>
-        <li>
-          <Link href="/pollos">Pollos</Link>
-        </li>
+
+        {categories.map((category) => (
+          <li key={category}>
+            <Link href={`/${encodeURIComponent(category)}`}>{category}</Link>
+          </li>
+        ))}
       </ul>
     </aside>
   );

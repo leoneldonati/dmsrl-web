@@ -16,3 +16,4 @@ interface Product {
 interface ProductInCart extends Product {
   quantity: Readonly<number>;
 }
+type ProductWithoutId = Omit<Product, "_id">;

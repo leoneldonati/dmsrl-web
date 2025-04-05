@@ -13,7 +13,7 @@ export default function Header() {
   const [opened, setOpened] = useState(false);
   const { list, toggleOpened } = useCartStore();
   return (
-    <header className="flex justify-between p-2 bg-brand-1 [&>button]:cursor-pointer ">
+    <header className="flex justify-between px-2 bg-brand-1 [&>button]:cursor-pointer">
       <button
         onClick={() => setOpened((value) => !value)}
         title="Mostrar menú desplegable"
